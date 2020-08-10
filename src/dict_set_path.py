@@ -1,5 +1,8 @@
-def dict_set_path(dictionary, path, val, path_sep = "."):
+import copy
+def dict_set_path(dictionary, path, val, return_copy=False, path_sep = "."):
     path = path.split(path_sep)
+    if return_copy:
+        dictionary = copy.deepcopy(dictionary)
     if len(path)<1:
         return dictionary
     # go to last dictionary
